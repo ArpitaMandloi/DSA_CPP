@@ -1,0 +1,17 @@
+ bool armstrongNumber(int n) {
+        // code here
+        int revNum = 0;
+         int dup = n;
+         int sum = 0;
+
+         while(n > 0){
+            int ld = n % 10;
+            sum = sum + (ld * ld * ld);
+            if (revNum > INT_MAX / 10 || (revNum == INT_MAX / 10 && ld > 7)) return false;
+            revNum = (revNum * 10) + ld;
+            n = n / 10;
+         }
+         if(sum == dup) return true;
+         else return false;
+    }
+    
