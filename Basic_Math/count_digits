@@ -1,0 +1,17 @@
+  int evenlyDivides(int n) {
+        // code here
+        int count = 0;
+        int originalnumber = n;
+        while(n>0){
+            int lastcount = n % 10;
+            
+            
+             if (lastcount != 0 && originalnumber % lastcount == 0) {
+            count++;
+        }
+            
+            n = n / 10;
+        }
+        return count;
+    }
+};
