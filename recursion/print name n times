@@ -1,0 +1,9 @@
+void printGfg(int N ,int cnt = 1) {
+        // Code here
+        if(cnt > N) return;
+        cout<<" GFG";
+        cnt++;
+        
+        printGfg(N , cnt++);
+        
+    }
