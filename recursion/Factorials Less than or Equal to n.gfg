@@ -1,0 +1,19 @@
+vector<long long> factorialNumbers(long long n) {
+        // Write Your Code here
+        
+        vector<long long> result; // Create a vector to store factorials
+        long long factorial = 1; // Initialize factorial as 1
+        
+        for (long long i = 1; i <= n; i++) {
+            factorial *= i; 
+            // Calculate factorial
+           if (factorial <= n) { // Only include factorials <= n
+                result.push_back(factorial);
+            } else {
+                break; // Stop adding if factorial exceeds n
+            } // Store it in the vector
+        }
+        
+        return result; // Return the vector of factorials
+    
+    }
