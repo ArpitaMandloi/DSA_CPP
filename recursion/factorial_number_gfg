@@ -1,0 +1,13 @@
+  bool isFactorial(int N) {
+        int factorial = 1;
+        int i = 1;
+        
+        while (factorial < N) {
+            i++;
+            factorial *= i;
+        }
+        
+        return factorial == N; // Returns true if N is a factorial number
+    
+    }
+    
