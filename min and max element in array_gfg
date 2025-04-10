@@ -1,10 +1,2 @@
- pair<int, int> getMinMax(vector<int> arr) {
-        // code here
-        int minElement = *min_element(arr.begin(), arr.end());
-        int maxElement = *max_element(arr.begin(), arr.end());
-        
-        // Returning the result as a pair
-        return {minElement, maxElement};
-        
-       
+
     }
