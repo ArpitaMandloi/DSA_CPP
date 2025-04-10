@@ -1,0 +1,17 @@
+int largest(vector<int> &arr) {
+        // code here
+        int n = arr.size();
+        
+        sort(arr.begin(),arr.end());
+        
+         int largestElement = INT_MIN;
+        
+        for(int i = 0;i<n; i++){
+            if(arr[i]> largestElement){
+              largestElement = arr[i];
+            }
+          
+        }
+        
+        return largestElement;
+    }
