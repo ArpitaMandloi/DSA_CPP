@@ -1,0 +1,17 @@
+bool isSubset(vector<int> &a, vector<int> &b) {
+        // Your code hereif
+        unordered_map<int , int> frequency;
+        for(int num : a){
+            frequency[num]++;
+        }
+        for (int num: b){
+            if(frequency[num]>0){
+                frequency[num]--;
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+        
+    }
