@@ -1,0 +1,15 @@
+void rotateArr(vector<int>& arr, int d) {
+        // code here
+        
+        int n = arr.size();
+          d = d % n; // Handle cases where d > n
+
+        // Step 1: Reverse the first d elements
+        reverse(arr.begin(), arr.begin() + d);
+
+        // Step 2: Reverse the remaining elements
+        reverse(arr.begin() + d, arr.end());
+
+        // Step 3: Reverse the entire array
+        reverse(arr.begin(), arr.end());
+    }
