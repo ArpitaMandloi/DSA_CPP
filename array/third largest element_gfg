@@ -1,0 +1,13 @@
+  int thirdLargest(vector<int> &arr) {
+        // Your code here
+        int n = arr.size();
+        
+        sort(arr.begin(),arr.end());
+        
+        for(int i = n-3 ; i>=0;i--){
+            if(arr[i] != arr[i-2] ){
+                return arr[i];
+            }
+        }
+        return -1;
+    }
