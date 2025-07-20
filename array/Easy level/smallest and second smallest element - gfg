@@ -1,0 +1,23 @@
+    vector<int> minAnd2ndMin(vector<int> &arr) {
+        // code here
+        
+        int smallest = arr[0];
+        int sSmallest = INT_MAX;
+        
+        for(int i = 0 ; i< arr.size();i++){
+            if(arr[i] < smallest){
+                sSmallest = smallest;
+                smallest = arr[i];
+                
+            }
+            else if(arr[i] != smallest && arr[i] < sSmallest){
+                sSmallest = arr[i];
+            }
+            
+           
+        }
+        if (sSmallest == INT_MAX) {
+        return {-1}; // Return -1 if there's no second smallest element
+    }
+         return {smallest , sSmallest};
+    }
