@@ -1,0 +1,21 @@
+
+  void func(int ind, vector<int> &arr, int N, vector<int> &ds, vector<vector<int>> &ans) {
+        if(ind == N) {
+            ans.push_back(ds);
+            return;
+        }
+        // pick the element
+        ds.push_back(arr[ind]);
+        func(ind + 1, arr, N, ds, ans);
+        ds.pop_back();
+        // not pick the element
+        func(ind + 1, arr, N, ds, ans);
+    }
+
+    vector<vector<int>> subsets(vector<int>& arr) {
+        int N = arr.size();
+        vector<vector<int>> ans;
+        vector<int> ds;
+        func(0, arr, N, ds, ans);
+        return ans;
+    }
