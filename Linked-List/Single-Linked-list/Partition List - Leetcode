@@ -1,0 +1,26 @@
+ListNode* partition(ListNode* head, int x) {
+    if(head == nullptr || head->next == nullptr) return head;
+
+    ListNode* smallDummy = new ListNode(0);
+    ListNode* largeDummy = new ListNode(0);
+
+    ListNode* small = smallDummy;
+    ListNode* large = largeDummy;
+
+    ListNode* temp = head;
+    while(temp != nullptr) {
+        if(temp->val < x) {
+            small->next = temp;
+            small = small->next;
+        } else {
+            large->next = temp;
+            large = large->next;
+        }
+        temp = temp->next; // important: move forward inside loop
+    }
+
+    large->next = nullptr;          // terminate large list
+    small->next = largeDummy->next; // connect lists
+
+    return smallDummy->next;
+}
