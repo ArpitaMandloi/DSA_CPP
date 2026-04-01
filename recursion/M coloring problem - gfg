@@ -1,0 +1,36 @@
+bool isSafe(int node, int color[], vector<int> adj[], int col) {
+        for (auto neigh : adj[node]) {
+            if (color[neigh] == col) return false;
+        }
+        return true;
+    }
+
+    // Recursive function to assign colors
+    bool solve(int node, int color[], int v, int m, vector<int> adj[]) {
+        if (node == v) return true; // all vertices colored
+
+        for (int col = 1; col <= m; col++) {
+            if (isSafe(node, color, adj, col)) {
+                color[node] = col;
+                if (solve(node + 1, color, v, m, adj)) return true;
+                color[node] = 0; // backtrack
+            }
+        }
+        return false;
+    }
+
+    // Main function
+    bool graphColoring(int v, vector<vector<int>> &edges, int m) {
+        // Build adjacency list
+        vector<int> adj[v];
+        for (auto &e : edges) {
+            int u = e[0], w = e[1];
+            adj[u].push_back(w);
+            adj[w].push_back(u);
+        }
+
+        int color[v];
+        memset(color, 0, sizeof(color));
+
+        return solve(0, color, v, m, adj);
+    }
