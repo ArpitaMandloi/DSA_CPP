@@ -1,0 +1,33 @@
+vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        
+        stack<int> st;
+        unordered_map<int, int> mp;   // element -> next greater
+        
+        // Process nums2
+        for(int i = 0; i < nums2.size(); i++) {
+            
+            int current = nums2[i];
+            
+            while(!st.empty() && current > st.top()) {
+                mp[st.top()] = current;
+                st.pop();
+            }
+            
+            st.push(current);
+        }
+        
+        // Remaining elements have no greater element
+        while(!st.empty()) {
+            mp[st.top()] = -1;
+            st.pop();
+        }
+        
+        // Build result for nums1
+        vector<int> result;
+        
+        for(int i = 0; i < nums1.size(); i++) {
+            result.push_back(mp[nums1[i]]);
+        }
+        
+        return result;
+    }
