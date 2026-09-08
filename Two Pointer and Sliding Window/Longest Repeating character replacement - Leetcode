@@ -1,0 +1,35 @@
+int characterReplacement(string s, int k) {
+
+        int n = s.size();
+
+        int l = 0;
+        int r = 0;
+
+        int maxLen = 0;
+        int maxF = 0;
+
+        int hash[26] = {0};
+
+        while (r < n) {
+
+            // Add current character
+            hash[s[r] - 'A']++;
+
+            // Maximum frequency in current window
+            maxF = max(maxF, hash[s[r] - 'A']);
+
+            // If window becomes invalid
+            if ((r - l + 1) - maxF > k) {
+
+                hash[s[l] - 'A']--;
+                l++;
+            }
+
+            // Valid window
+            maxLen = max(maxLen, r - l + 1);
+
+            r++;
+        }
+
+        return maxLen;
+    }
